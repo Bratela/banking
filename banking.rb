@@ -5,10 +5,6 @@ class Account
     @name = name
     @balance = balance
   end
-  # def initialize(args)
-  #   @name = args[:name]
-  #   @balance = args[:balance]
-  # end
 
   class << self
     def create (name)
@@ -20,7 +16,7 @@ class Account
           @accounts.find { |account| account.name == name }
     end
     def list
-      puts @accounts
+      ObjectSpace.each_object(Account).to_a
     end
   end
 
